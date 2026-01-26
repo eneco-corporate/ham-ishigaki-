@@ -1,0 +1,292 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import MissionSection from '../components/MissionSection.astro';
+import ScrollAnimations from '../components/ScrollAnimations.astro';
+import ishigakiImage from '../images/ishigaki01.webp';
+import ishigakiImage2 from '../images/ishigaki02.webp'; 
+
+const products = [
+  {
+    name: 'WET生ハム',
+    description: '柔らかく、深い旨味',
+    category: 'Premium'
+  },
+  {
+    name: 'ビオレッタ',
+    description: 'DRY熟成の芳醇',
+    category: 'Signature'
+  },
+  {
+    name: '山羊ベーコン',
+    description: '豊かな香りと食感',
+    category: 'Classic'
+  },
+  {
+    name: '山羊刺身',
+    description: '鮮烈な美味しさ',
+    category: 'Fresh'
+  }
+];
+---
+
+<Layout title="石垣野底山羊ハム | 四分休符の島からの贈り物">
+  <!-- 描画アニメーションセクション（最初に表示） -->
+  <div id="text-animation" class="fixed inset-0 flex items-center justify-center bg-stone-50 z-50">
+    <div class="relative w-full px-6">
+      <svg width="720" height="100" viewBox="0 0 720 100" class="w-full max-w-4xl mx-auto" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#b48811" />
+            <stop offset="50%" stop-color="#f2d06b" />
+            <stop offset="100%" stop-color="#b48811" />
+          </linearGradient>
+        </defs>
+
+        <!-- 各文字を個別に配置（中央揃え） -->
+        <g class="text-group">
+          <text x="80" y="50" class="char-0" dominant-baseline="middle" text-anchor="middle">日</text>
+          <text x="150" y="50" class="char-1" dominant-baseline="middle" text-anchor="middle">本</text>
+          <text x="220" y="50" class="char-2" dominant-baseline="middle" text-anchor="middle">初</text>
+          <text x="290" y="50" class="char-3" dominant-baseline="middle" text-anchor="middle">の</text>
+          <text x="360" y="50" class="char-4" dominant-baseline="middle" text-anchor="middle">山</text>
+          <text x="430" y="50" class="char-5" dominant-baseline="middle" text-anchor="middle">羊</text>
+          <text x="500" y="50" class="char-6" dominant-baseline="middle" text-anchor="middle">生</text>
+          <text x="570" y="50" class="char-7" dominant-baseline="middle" text-anchor="middle">ハ</text>
+          <text x="640" y="50" class="char-8" dominant-baseline="middle" text-anchor="middle">ム</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <main id="main-content" class="relative opacity-0">
+    <!-- Hero -->
+    <Hero />
+
+    <!-- セクション区切り -->
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="h-px mb-20"></div>
+    </div>
+
+    <!-- Feature Sections -->
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <FeatureCard
+        tag="Premium & Rare"
+        title="日本初、世界でも類を見ない"
+        description="全国の山羊生産者が注目してこなかった、親山羊の需要提案。石垣野底から発信される、新たな食文化のリーディングモデルです。"
+        imagePath={ishigakiImage.src}
+      />
+
+      <FeatureCard
+        tag="Lifestyle"
+        title="島酒と山羊ハムで、小休止。"
+        description="いつも頑張っている皆々様へ。泡盛(島酒)と山羊ハム。日常に「四分休符」を打つ、贅沢なひとときを。"
+        imagePath={ishigakiImage2.src}
+        reverse={true}
+      />
+    </div>
+
+    <!-- Mission Section -->
+    <MissionSection />
+
+    <!-- Philosophy Section -->
+    <section class="py-32 md:py-48 px-6 relative overflow-hidden">
+      <!-- 背景装飾 -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px]blur-[120px] rounded-full"></div>
+
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        <div class="mb-12 flex justify-center">
+          <div class="w-16 h-16 border border-sky-300/40 rotate-45 flex items-center justify-center">
+            <div class="w-2 h-2 rounded-full"></div>
+          </div>
+        </div>
+
+        <h2 class="text-sm font-sans tracking-[0.4em] uppercase text-sky-600 mb-8">Philosophy</h2>
+        <p class="text-3xl md:text-5xl font-light leading-relaxed mb-12 tracking-wide text-slate-800">
+          メロディも人生も<br/>
+          休みは必要ですよ
+        </p>
+
+        <div class="max-w-2xl mx-auto space-y-8 text-slate-700 leading-loose text-sm md:text-base font-light">
+          <p class="tracking-wider">
+            音楽における「四分休符」は、静寂という名の旋律。<br class="hidden md:block"/>
+            その小さな間が、次の音をより美しく響かせる。
+          </p>
+          <p class="tracking-wider">
+            石垣島野底の山羊ハムは、忙しい日常に打つ、贅沢な休符。<br class="hidden md:block"/>
+            ほんの一瞬の小休止が、明日への活力を生む。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pairing Section -->
+    <section class="py-32 md:py-48 px-6 relative overflow-hidden">
+      <div class="absolute inset-0 bg-linear-to-b from-transparent via-sky-200/40 to-transparent -z-10"></div>
+
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16 md:mb-24">
+          <h2 class="text-sm font-sans tracking-[0.4em] uppercase text-sky-600 mb-4">Pairing</h2>
+          <p class="text-2xl md:text-4xl font-light tracking-wide text-slate-800">島酒とともに</p>
+        </div>
+
+        <div class="relative p-12 md:p-20 rounded-[2.5rem] overflow-hidden">
+          <!-- 背景レイヤー -->
+          <div class="absolute inset-0 bg-linear-to-br from-white/8 to-white/4 backdrop-blur-2xl -z-10"></div>
+          <div class="absolute inset-0 border border-sky-200/30 rounded-[2.5rem] -z-10"></div>
+          <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-sky-300/20 blur-[100px] rounded-full -z-10"></div>
+
+          <div class="text-center space-y-8">
+            <p class="text-lg md:text-2xl font-light leading-loose tracking-wide text-slate-800">
+              石垣島の泡盛（島酒）と山羊ハム。<br class="hidden md:block"/>
+              この島が育んだ二つの味わいが、<br class="hidden md:block"/>
+              至福のマリアージュを奏でる。
+            </p>
+            <div class="pt-6">
+              <p class="text-xs md:text-sm text-slate-600 font-light tracking-widest">
+                ゆったりと流れる島時間の中で、心を解きほぐす
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="py-24 md:py-32 px-6 border-t border-sky-200/20 relative scroll-mt-24">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col items-center gap-12 text-slate-600">
+          <!-- ロゴエリア -->
+          <div class="flex flex-col items-center gap-6">
+            <div class="w-20 h-20 border border-sky-300/30 rotate-45 flex items-center justify-center transition-transform duration-700 hover:rotate-90">
+              <div class="w-3 h-3 bg-sky-400/60 rounded-full"></div>
+            </div>
+            <div class="text-center space-y-2">
+              <p class="text-sm tracking-[0.3em] text-slate-700">石垣野底山羊ハム</p>
+              <p class="text-[10px] tracking-[0.4em] uppercase font-sans text-slate-600">Ishigakijima Nosoko</p>
+            </div>
+          </div>
+
+          <!-- リンク -->
+          <div class="flex flex-wrap justify-center gap-8 text-[10px] tracking-[0.3em] uppercase font-sans">
+            <span class="hover:text-sky-500 transition-colors cursor-pointer">Ryugunosoko</span>
+            <span class="text-slate-400">·</span>
+            <span class="hover:text-sky-500 transition-colors cursor-pointer">Everfood</span>
+            <span class="text-slate-400">·</span>
+            <span class="hover:text-sky-500 transition-colors cursor-pointer">Contact</span>
+          </div>
+
+          <!-- コピーライト -->
+          <div class="text-center space-y-3">
+            <div class="h-px w-32 mx-auto bg-linear-to-r from-transparent via-sky-300/30 to-transparent"></div>
+            <p class="text-[10px] tracking-wider">
+              © {new Date().getFullYear()} Ishigakijima Nosoko Goat Ham Project. All Rights Reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- スクロールアニメーション -->
+  <ScrollAnimations />
+
+  <style>
+    /* 各文字のスタイル */
+    .char-0, .char-1, .char-2, .char-3, .char-4, .char-5, .char-6, .char-7, .char-8 {
+      font-family: "Noto Serif JP", serif;
+      font-size: clamp(1.8rem, 5vw, 3.5rem);
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      fill: transparent;
+      stroke: #44403c;
+      stroke-width: 1px;
+      stroke-dasharray: 200;
+      stroke-dashoffset: 200;
+    }
+
+    /* 各文字に遅延を設けて順番に描画 */
+    .char-0 {
+      animation: drawChar 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0s forwards;
+    }
+    .char-1 {
+      animation: drawChar 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+    }
+    .char-2 {
+      animation: drawChar 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
+    }
+    .char-3 {
+      animation: drawChar 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
+    }
+    .char-4 {
+      animation: drawChar 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.8s forwards;
+    }
+    .char-5 {
+      animation: drawChar 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.0s forwards;
+    }
+    .char-6 {
+      animation: drawChar 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.2s forwards;
+    }
+    .char-7 {
+      animation: drawChar 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.4s forwards;
+    }
+    .char-8 {
+      animation: drawChar 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.6s forwards;
+    }
+
+    @keyframes drawChar {
+      0% {
+        stroke-dashoffset: 200;
+        fill: transparent;
+      }
+      60% {
+        stroke-dashoffset: 0;
+        fill: transparent;
+      }
+      100% {
+        stroke-dashoffset: 0;
+        fill: #44403c;
+      }
+    }
+
+    /* アニメーション完了後にメインコンテンツを表示 */
+    #main-content {
+      transition: opacity 1s ease-in-out;
+    }
+
+    #main-content.show {
+      opacity: 1;
+    }
+
+    /* アニメーション完了後にテキストアニメーションを非表示 */
+    #text-animation {
+      transition: opacity 1s ease-in-out;
+    }
+
+    #text-animation.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+
+  <script>
+    // 全文字のアニメーション完了を待つ（最後の文字のアニメーション開始 + アニメーション時間 + フェードアウト時間）
+    const totalAnimationTime = 1600 + 800 + 1000; // 最後の文字の開始時間(1.6s) + アニメーション時間(0.8s) + フェードアウト時間(1s)
+
+    setTimeout(() => {
+      const textAnimation = document.getElementById('text-animation');
+      const mainContent = document.getElementById('main-content');
+      
+      if (textAnimation && mainContent) {
+        textAnimation.classList.add('hide');
+        mainContent.classList.add('show');
+        
+        // フェードアウト完了後にDOMから削除
+        setTimeout(() => {
+          textAnimation.remove();
+        }, 1000);
+      }
+    }, totalAnimationTime);
+  </script>
+</Layout>

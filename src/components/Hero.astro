@@ -1,0 +1,145 @@
+<section class="min-h-screen flex flex-col items-center justify-center text-center px-6 py-20 relative overflow-hidden">
+  <!-- 浮遊する装飾要素 -->
+  <div class="absolute top-[10%] left-[5%] w-32 h-32 border border-sky-200/20 rotate-45 rounded-sm animate-float-delayed opacity-30"></div>
+  <div class="absolute bottom-[15%] right-[8%] w-24 h-24 border border-sky-300/30 rotate-45 rounded-sm animate-float opacity-20"></div>
+  <div class="absolute top-[22%] right-[12%] w-28 h-28 bg-rose-300/10 blur-3xl rounded-full"></div>
+
+  <!-- メインコピー -->
+  <div class="relative z-10 animate-fade-in-delayed">
+    <p class="text-xs md:text-sm font-sans tracking-[0.3em] uppercase text-slate-600 mb-6 font-light">
+      Ishigakijima Nosoko Premium
+    </p>
+
+    <h1 class="mb-8">
+      <span class="block text-lg md:text-2xl font-light tracking-[0.25em] mb-6 text-slate-700 italic">
+        Rest in Melody, Rest in Life.
+      </span>
+      <span class="block text-6xl md:text-8xl lg:text-9xl font-medium tracking-tight leading-[0.95] relative text-slate-800">
+        <span class="inline-block hover:text-rose-700 transition-colors duration-700">山</span><span class="inline-block hover:text-rose-700 transition-colors duration-700">羊</span><span class="inline-block hover:text-rose-700 transition-colors duration-700">ハ</span><span class="inline-block hover:text-rose-700 transition-colors duration-700">ム</span>
+      </span>
+    </h1>
+
+    <!-- サブコピー -->
+    <div class="max-w-2xl mx-auto space-y-8 mt-16">
+      <p class="text-base md:text-xl font-light tracking-[0.2em] leading-relaxed text-slate-700">
+        ちょっと小休止しましょ<br class="md:hidden"/>
+        <span class="hidden md:inline">　</span>青い波と風にふれて<br/>
+        ほんのちょっとだけ心を円くしませんか
+      </p>
+
+      <div class="pt-6 flex flex-col items-center gap-3">
+        <div class="w-px h-12 bg-gradient-to-b from-transparent via-sky-400/60 to-transparent"></div>
+        <p class="text-sky-600 text-xs md:text-sm tracking-[0.3em] font-sans font-light">
+          四分休符の島　石垣
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class="pt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="#lineup"
+          class="inline-flex items-center justify-center rounded-full bg-rose-800 px-8 py-3 text-xs md:text-sm font-sans tracking-[0.25em] uppercase text-white shadow-[0_30px_80px_rgba(159,18,57,0.25)] ring-1 ring-rose-200/40 transition hover:bg-rose-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300"
+        >
+          Lineup
+        </a>
+        <a
+          href="#contact"
+          class="inline-flex items-center justify-center rounded-full bg-white/60 px-8 py-3 text-xs md:text-sm font-sans tracking-[0.25em] uppercase text-slate-800 ring-1 ring-slate-200/70 backdrop-blur-md transition hover:bg-white/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-200"
+        >
+          Contact
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- スクロールインジケーター -->
+  <div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce-slow">
+    <div class="flex flex-col items-center gap-2">
+      <div class="w-[1px] h-16 bg-gradient-to-b from-slate-400/50 to-transparent"></div>
+      <span class="text-[9px] font-sans tracking-[0.3em] uppercase text-slate-600">Scroll</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ダイヤモンドバッジのスタイル */
+  .diamond-container {
+    perspective: 1000px;
+  }
+
+  .diamond-badge {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    transform: rotate(45deg);
+    transition: transform 0.8s ease;
+  }
+
+  .diamond-badge:hover {
+    transform: rotate(45deg) scale(1.1);
+  }
+
+  .diamond-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, rgba(56, 189, 248, 0.08) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    backdrop-filter: blur(10px);
+    box-shadow:
+      0 0 40px rgba(0, 0, 0, 0.1),
+      inset 0 0 20px rgba(56, 189, 248, 0.15);
+    transform: rotate(-45deg);
+  }
+
+  /* アニメーション */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInDelayed {
+    0% { opacity: 0; transform: translateY(30px); }
+    40% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0) rotate(45deg); }
+    33% { transform: translate(10px, -20px) rotate(45deg); }
+    66% { transform: translate(-15px, 10px) rotate(45deg); }
+  }
+
+  @keyframes floatDelayed {
+    0%, 100% { transform: translate(0, 0) rotate(45deg); }
+    33% { transform: translate(-15px, 20px) rotate(45deg); }
+    66% { transform: translate(20px, -10px) rotate(45deg); }
+  }
+
+  @keyframes bounceSlow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1.5s ease-out forwards;
+  }
+
+  .animate-fade-in-delayed {
+    animation: fadeInDelayed 2s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 18s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: floatDelayed 22s ease-in-out infinite;
+  }
+
+  .animate-bounce-slow {
+    animation: bounceSlow 3s ease-in-out infinite;
+  }
+</style>

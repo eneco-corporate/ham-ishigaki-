@@ -1,0 +1,70 @@
+---
+interface Props {
+  tag: string;
+  title: string;
+  description: string;
+  imagePath?: string;
+  reverse?: boolean;
+  textColor?: string;
+  subTextColor?: string;
+}
+const { tag, title, description, imagePath, reverse = false, textColor = 'text-stone-300', subTextColor = 'text-stone-200' } = Astro.props;
+---
+<div class={`flex flex-col ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8 md:gap-16 py-16 md:py-32 relative group`}>
+  <!-- コンテンツカード -->
+  <div class="flex-1 space-y-6 md:space-y-8 p-10 md:p-16 relative overflow-hidden rounded-[2rem] group/card">
+    <!-- 和紙のような背景レイヤー --> 
+    <div class="absolute inset-0 -z-10 rounded-[2rem]"></div>
+
+    <div class="relative z-10 space-y-6 md:space-y-8">
+      <div class="flex items-center gap-4">
+        <div class="h-px flex-1 bg-gradient-to-r from-transparent via-sky-400/40 to-transparent"></div>
+        <span class="text-rose-700 font-sans text-[10px] tracking-[0.4em] uppercase font-light">{tag}</span>
+        <div class="h-px flex-1 bg-gradient-to-r from-transparent via-sky-400/40 to-transparent"></div>
+      </div>
+
+      <h2 class="text-2xl md:text-4xl lg:text-5xl font-medium leading-tight tracking-tight text-slate-800">
+        {title}
+      </h2>
+
+      <div class="w-16 h-[2px] bg-gradient-to-r from-rose-700/70 to-transparent"></div>
+
+      <p class="text-slate-700 text-sm md:text-base leading-loose md:leading-loose font-light tracking-wide whitespace-pre-wrap">
+        {description}
+      </p>
+    </div>
+  </div>
+
+  <!-- イメージエリア -->
+  <div class="flex-1 w-full aspect-[3/4] relative rounded-[2rem] overflow-hidden group/image">
+    <!-- 画像表示（imagePathが指定されている場合） -->
+    {imagePath && (
+      <img 
+        src={imagePath} 
+        alt={title}
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+    )}
+    <!-- 装飾的な幾何学パターン -->
+    <svg class="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
+      <pattern id="feature-pattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+        <circle cx="30" cy="30" r="20" fill="none" stroke="currentColor" stroke-width="0.5"/>
+      </pattern>
+      <rect width="100%" height="100%" fill="url(#feature-pattern)"/>
+    </svg>
+
+    <!-- ボーダー -->
+    <div class="absolute inset-0 border border-white/10 rounded-[2rem] transition-all duration-700 group-hover/image:border-sky-400/40"></div>
+
+    <!-- テキストラベル -->
+    <div class="absolute bottom-8 left-8 right-8 flex items-end justify-between">
+      <div class="space-y-1">
+        <p class={`text-[9px] font-sans tracking-[0.4em] uppercase ${textColor} font-light`}>Premium Quality</p>
+        <p class={`text-xs tracking-[0.2em] ${subTextColor} font-light`}>石垣島野底</p>
+      </div>
+      <div class="w-8 h-8 border border-white/20 rounded-full flex items-center justify-center rotate-45 transition-transform duration-700 group-hover/image:rotate-[90deg]">
+        <div class="w-1 h-1 bg-sky-400/70 rounded-full"></div>
+      </div>
+    </div>
+  </div>
+</div>

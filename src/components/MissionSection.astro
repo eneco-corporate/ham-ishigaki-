@@ -1,0 +1,114 @@
+---
+interface Props {
+  imagePath?: string;
+}
+const { imagePath } = Astro.props;
+---
+
+<section class="py-32 md:py-48 px-6 relative overflow-hidden">
+  <!-- 背景装飾：アースカラー -->
+  <div class="absolute inset-0 bg-gradient-to-b from-emerald-50/30 via-teal-50/20 to-sky-50/30 -z-10"></div>
+  <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-emerald-200/20 blur-[120px] rounded-full -z-10"></div>
+  <div class="absolute bottom-1/4 left-1/4 w-96 h-96 bg-teal-200/20 blur-[120px] rounded-full -z-10"></div>
+
+  <div class="max-w-7xl mx-auto">
+    <!-- セクションタイトル -->
+    <div class="text-center mb-20 md:mb-32">
+      <div class="mb-6 flex justify-center">
+        <div class="w-16 h-16 border border-emerald-300/40 rotate-45 flex items-center justify-center">
+          <div class="w-2 h-2 bg-emerald-500/70 rounded-full"></div>
+        </div>
+      </div>
+      <h2 class="text-sm font-sans tracking-[0.4em] uppercase mb-6">Our Mission</h2>
+      <h3 class="text-3xl md:text-5xl font-light leading-relaxed mb-8 tracking-wide text-slate-800">
+        命を余すところなく。<br class="hidden md:block"/>
+        <span class="font-medium">石垣・野底</span>から始まる<br class="md:hidden"/>
+        <span class="font-medium">「親山羊」</span>の再定義。
+      </h3>
+      <div class="w-24 h-px bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent mx-auto"></div>
+    </div>
+
+    <!-- 3つのポイント -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-20">
+      <!-- 現状の課題 -->
+      <div class="group relative">
+        <div class="absolute inset-0 bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="relative p-8 md:p-10 bg-white/80 backdrop-blur-sm rounded-3xl border border-slate-200/50 h-full transition-all duration-500 group-hover:border-amber-300/50 group-hover:shadow-xl">
+          <!-- アイコン -->
+          <div class="mb-6 flex items-center justify-center w-16 h-16 rounded-2xl bg-amber-100/50 border border-amber-200/50">
+            <svg class="w-8 h-8 " fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          <h4 class="text-lg md:text-xl font-medium text-slate-800 mb-4 tracking-tight">現状の課題</h4>
+          <p class="text-slate-600 text-sm md:text-base leading-relaxed font-light tracking-wide">
+            全国の山羊生産者は「子山羊を大きくすること（肉量増加）」ばかりを研究目標にしており、<span class="font-medium">「親山羊（成山羊）」の需要拡大や活用が見過ごされています</span>。
+          </p>
+        </div>
+      </div>
+
+      <!-- 社会的トレンド -->
+      <div class="group relative">
+        <div class="absolute inset-0 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="relative p-8 md:p-10 bg-white/80 backdrop-blur-sm rounded-3xl border border-slate-200/50 h-full transition-all duration-500 group-hover:border-emerald-300/50 group-hover:shadow-xl">
+          <!-- アイコン -->
+          <div class="mb-6 flex items-center justify-center w-16 h-16 rounded-2xl bg-emerald-100/50 border border-emerald-200/50">
+            <svg class="w-8 h-8 " fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+            </svg>
+          </div>
+          <h4 class="text-lg md:text-xl font-medium text-slate-800 mb-4 tracking-tight">社会的トレンド</h4>
+          <p class="text-slate-600 text-sm md:text-base leading-relaxed font-light tracking-wide">
+            近年、<span class="font-medium">廃鶏（採卵期間を終えた鶏）や廃牛（繁殖を終えた牛）を「廃棄」せず、新たな食材価値として活用する動き</span>（サステナビリティ・SDGs）が推奨されています。
+          </p>
+        </div>
+      </div>
+
+      <!-- 野底の提案 -->
+      <div class="group relative">
+        <div class="absolute inset-0 bg-gradient-to-br from-sky-50 to-teal-50 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="relative p-8 md:p-10 bg-white/80 backdrop-blur-sm rounded-3xl border border-slate-200/50 h-full transition-all duration-500 group-hover:border-sky-300/50 group-hover:shadow-xl">
+          <!-- アイコン -->
+          <div class="mb-6 flex items-center justify-center w-16 h-16 rounded-2xl bg-sky-100/50 border border-sky-200/50">
+            <svg class="w-8 h-8 " fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h4 class="text-lg md:text-xl font-medium text-slate-800 mb-4 tracking-tight">野底の提案</h4>
+          <p class="text-slate-600 text-sm md:text-base leading-relaxed font-light tracking-wide">
+            <span class="font-medium">親山羊の価値を再定義</span>し、<span class="font-medium">石垣島野底地区</span>から<span class="font-bold">「親山羊活用のリーディングモデル」</span>を発信します。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- メインメッセージ -->
+    <div class="max-w-4xl mx-auto">
+      <div class="relative p-12 md:p-16 rounded-3xl overflow-hidden">
+        <!-- 背景 -->
+        <div class="absolute inset-0 bg-gradient-to-br from-emerald-50/80 via-teal-50/60 to-sky-50/80 backdrop-blur-sm -z-10"></div>
+        <div class="absolute inset-0 border border-emerald-200/30 rounded-3xl -z-10"></div>
+        
+        <!-- コンテンツ -->
+        <div class="relative space-y-8 text-center">
+          <div class="flex justify-center">
+            <div class="w-12 h-px bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent"></div>
+          </div>
+          
+          <p class="text-lg md:text-xl leading-relaxed text-slate-700 font-light tracking-wide">
+            「育てる」だけでなく「繋ぐ」畜産へ。<br class="hidden md:block"/>
+            <span class="font-medium text-emerald-800">石垣島野底地区</span>を、<br class="md:hidden"/>
+            日本における<span class="font-bold text-emerald-800">親山羊活用のリーディングモデル地域</span>へと育て上げます。
+          </p>
+
+          <div class="pt-4">
+            <p class="text-sm md:text-base text-slate-600 font-light tracking-wider">
+              地域循環型の畜産モデルを構築し、<br class="hidden md:block"/>
+              持続可能な食の未来を共に創ります。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
