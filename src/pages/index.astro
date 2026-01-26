@@ -5,7 +5,8 @@ import FeatureCard from '../components/FeatureCard.astro';
 import MissionSection from '../components/MissionSection.astro';
 import ScrollAnimations from '../components/ScrollAnimations.astro';
 import ishigakiImage from '../images/ishigaki01.webp';
-import ishigakiImage2 from '../images/ishigaki02.webp'; 
+import ishigakiImage2 from '../images/ishigaki02.webp';
+import ishigakiImage3 from '../images/ishigaki03.webp'; 
 
 const products = [
   {
@@ -70,12 +71,14 @@ const products = [
     </div>
 
     <!-- Feature Sections -->
-    <div class="max-w-7xl mx-auto px-6 md:px-12">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 text-black">
       <FeatureCard
         tag="Premium & Rare"
         title="日本初、世界でも類を見ない"
         description="全国の山羊生産者が注目してこなかった、親山羊の需要提案。石垣野底から発信される、新たな食文化のリーディングモデルです。"
         imagePath={ishigakiImage.src}
+        textColor="text-black"
+        subTextColor="text-black"
       />
 
       <FeatureCard
@@ -88,11 +91,10 @@ const products = [
     </div>
 
     <!-- Mission Section -->
-    <MissionSection />
+    <MissionSection imagePath={ishigakiImage3.src} />
 
     <!-- Philosophy Section -->
-    <section class="py-32 md:py-48 px-6 relative overflow-hidden">
-      <!-- 背景装飾 -->
+    <section class="pt-0 pb-32 md:pb-48 px-6 relative overflow-hidden">
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px]blur-[120px] rounded-full"></div>
 
       <div class="max-w-4xl mx-auto text-center relative z-10">
