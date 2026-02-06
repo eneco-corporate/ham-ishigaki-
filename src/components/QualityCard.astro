@@ -1,0 +1,61 @@
+---
+interface Props {
+  /** 上部の小さな英語見出し */
+  eyebrow?: string;
+  /** 日本語タイトル */
+  title: string;
+  /** 説明テキスト */
+  description: string;
+  /** カードに表示する画像パス（/public か import 済みの src） */
+  imageSrc: string;
+}
+
+const {
+  eyebrow = 'Story',
+  title,
+  description,
+  imageSrc,
+} = Astro.props;
+---
+
+<article
+  class="group flex flex-col bg-white/90 backdrop-blur-sm rounded-3xl shadow-[0_18px_45px_rgba(15,23,42,0.08)] border border-sky-100/70 overflow-hidden transition-transform duration-500 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(15,23,42,0.14)]"
+>
+  <!-- 画像エリア（高さを一定にしてトリミング） -->
+  <div class="relative overflow-hidden h-40 md:h-48 lg:h-56">
+    <img
+      src={imageSrc}
+      alt={title}
+      loading="lazy"
+      class="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-[1.05]"
+    />
+
+    <!-- うっすらとしたオーバーレイ -->
+    <div class="pointer-events-none absolute inset-0 from-sky-900/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+  </div>
+
+  <!-- テキストエリア -->
+  <div class="flex-1 px-6 pt-6 pb-7 md:px-7 md:pt-7 md:pb-8 flex flex-col gap-4">
+    <div class="space-y-2">
+      <p class="text-[11px] tracking-[0.25em] uppercase text-sky-500 font-sans">
+        {eyebrow}
+      </p>
+      <h3 class="text-base md:text-lg font-medium tracking-wide text-slate-800 leading-relaxed font-zen-kaku">
+        {title}
+      </h3>
+    </div>
+
+    <p class="text-xs md:text-sm leading-relaxed text-slate-600 tracking-wide font-light">
+      {description}
+    </p>
+
+    <!-- フッターの矢印など（任意で使えるように最低限の装飾だけ） -->
+    <div class="mt-auto pt-3 flex items-center justify-between text-[11px] text-sky-600">
+      <span class="tracking-[0.25em] uppercase font-sans">Read</span>
+      <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-sky-50 text-sky-500 border border-sky-100 transition-colors duration-300 group-hover:bg-sky-500 group-hover:text-white group-hover:border-sky-500">
+        →
+      </span>
+    </div>
+  </div>
+</article>
+

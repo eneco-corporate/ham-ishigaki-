@@ -35,8 +35,8 @@ const { tag, title, description, imagePath, reverse = false, textColor = 'text-s
     </div>
   </div>
 
-  <!-- イメージエリア -->
-  <div class="flex-1 w-full aspect-[3/4] relative rounded-[2rem] overflow-hidden group/image">
+  <!-- イメージエリア（スマホでは高さ64までに制限） -->
+  <div class="flex-1 w-full h-64 md:h-auto md:aspect-[3/4] relative rounded-[2rem] overflow-hidden group/image">
     <!-- 画像表示（imagePathが指定されている場合） -->
     {imagePath && (
       <img 
@@ -60,7 +60,7 @@ const { tag, title, description, imagePath, reverse = false, textColor = 'text-s
     <div class="absolute bottom-8 left-8 right-8 flex items-end justify-between">
       <div class="space-y-1">
         <p class={`text-[9px] font-sans tracking-[0.4em] uppercase ${textColor} font-light`}>Premium Quality</p>
-        <p class={`text-xs tracking-[0.2em] ${subTextColor} font-light`}>石垣島野底</p>
+        <p class={`text-xs tracking-[0.2em] ${subTextColor} font-light`}>石垣島</p>
       </div>
       <div class="w-8 h-8 border border-white/20 rounded-full flex items-center justify-center rotate-45 transition-transform duration-700 group-hover/image:rotate-[90deg]">
         <div class="w-1 h-1 bg-sky-400/70 rounded-full"></div>

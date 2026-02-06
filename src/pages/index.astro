@@ -4,9 +4,11 @@ import Hero from '../components/Hero.astro';
 import FeatureCard from '../components/FeatureCard.astro';
 import MissionSection from '../components/MissionSection.astro';
 import ScrollAnimations from '../components/ScrollAnimations.astro';
+import QualityCard from '../components/QualityCard.astro';
 import ishigakiImage from '../images/ishigaki01.webp';
 import ishigakiImage2 from '../images/ishigaki02.webp';
 import ishigakiImage3 from '../images/ishigaki03.webp'; 
+import waveImage1 from '../images/wave1.webp';
 
 const products = [
   {
@@ -33,49 +35,35 @@ const products = [
 ---
 
 <Layout title="石垣野底山羊ハム | 四分休符の島からの贈り物">
-  <!-- 描画アニメーションセクション（最初に表示） -->
-  <div id="text-animation" class="fixed inset-0 flex items-center justify-center bg-stone-50 z-50">
-    <div class="relative w-full px-6">
-      <svg width="720" height="100" viewBox="0 0 720 100" class="w-full max-w-4xl mx-auto" preserveAspectRatio="xMidYMid meet">
-        <defs>
-          <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#b48811" />
-            <stop offset="50%" stop-color="#f2d06b" />
-            <stop offset="100%" stop-color="#b48811" />
-          </linearGradient>
-        </defs>
+  <!-- 一時的にページローディング時のアニメーションを停止中 -->
 
-        <!-- 各文字を個別に配置（中央揃え） -->
-        <g class="text-group">
-          <text x="80" y="50" class="char-0" dominant-baseline="middle" text-anchor="middle">日</text>
-          <text x="150" y="50" class="char-1" dominant-baseline="middle" text-anchor="middle">本</text>
-          <text x="220" y="50" class="char-2" dominant-baseline="middle" text-anchor="middle">初</text>
-          <text x="290" y="50" class="char-3" dominant-baseline="middle" text-anchor="middle">の</text>
-          <text x="360" y="50" class="char-4" dominant-baseline="middle" text-anchor="middle">山</text>
-          <text x="430" y="50" class="char-5" dominant-baseline="middle" text-anchor="middle">羊</text>
-          <text x="500" y="50" class="char-6" dominant-baseline="middle" text-anchor="middle">生</text>
-          <text x="570" y="50" class="char-7" dominant-baseline="middle" text-anchor="middle">ハ</text>
-          <text x="640" y="50" class="char-8" dominant-baseline="middle" text-anchor="middle">ム</text>
-        </g>
-      </svg>
-    </div>
-  </div>
-
-  <main id="main-content" class="relative opacity-0">
+  <main id="main-content" class="relative">
     <!-- Hero -->
-    <Hero />
+    <Hero
+      videoSources={[
+        '/bg1.mp4',
+        '/bg2.mp4',
+        '/bg3.mp4',
+      ]}
+    />
 
-    <!-- セクション区切り -->
-    <div class="max-w-7xl mx-auto px-6 md:px-12">
-      <div class="h-px mb-20"></div>
-    </div>
+    <!-- Canvas 波アニメーションのセクション区切り（動画の直下に常時表示） -->
+    <section class="relative bg-[#005776]">
+      <canvas
+        id="hero-wave-canvas"
+        class="block w-full h-[220px] md:h-[260px] lg:h-[320px] bg-[#005776]"
+      ></canvas>
+
+      <!-- 下のベース背景 -->
+      <div class="bg-[#fffaf2] h-16 md:h-24 lg:h-28 -mt-1"></div>
+    </section>
 
     <!-- Feature Sections -->
-    <div class="max-w-7xl mx-auto px-6 md:px-12 text-black">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 text-black bg-[#fffaf2] pt-8 md:pt-12">
       <FeatureCard
         tag="Premium & Rare"
-        title="日本初、世界でも類を見ない"
-        description="全国の山羊生産者が注目してこなかった、親山羊の需要提案。石垣野底から発信される、新たな食文化のリーディングモデルです。"
+        title="日本初、山羊の新たな可能性の発信"  
+        description="沖縄県でヒージャーと言われる山羊は琉球王朝時代（約15世紀頃）より山羊食文化があり、古来より沖縄では山羊はヌチグスイ（命の薬）と言われ重宝され（滋養強壮、産後女性の栄養補給等あらゆる万能薬として）、又祝い事(晴れの日)には欠かせない、島人にとっては大事な食材です。今、琉球石垣島から山羊の新たな可能性を発信し、山羊食文化のリーディングモデルを目指します。"
         imagePath={ishigakiImage.src}
         textColor="text-black"
         subTextColor="text-black"
@@ -95,22 +83,25 @@ const products = [
 
     <!-- Philosophy Section -->
     <section class="pt-0 pb-32 md:pb-48 px-6 relative overflow-hidden">
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px]blur-[120px] rounded-full"></div>
+      <!-- wave1.webp を背景に設定 -->
+      <div class="absolute inset-0 -z-10">
+        <img
+          src={waveImage1.src}
+          alt="背景の波のイメージ"
+          class="w-full h-full object-cover"
+          loading="lazy"
+        />
+      </div>
 
-      <div class="max-w-4xl mx-auto text-center relative z-10">
-        <div class="mb-12 flex justify-center">
-          <div class="w-16 h-16 border border-sky-300/40 rotate-45 flex items-center justify-center">
-            <div class="w-2 h-2 rounded-full"></div>
-          </div>
-        </div>
+      <div class="max-w-4xl mx-auto text-center relative z-10 items-center">
 
-        <h2 class="text-sm font-sans tracking-[0.4em] uppercase text-sky-600 mb-8">Philosophy</h2>
-        <p class="text-3xl md:text-5xl font-light leading-relaxed mb-12 tracking-wide text-slate-800">
+        <h2 class="text-sm font-sans tracking-[0.4em] uppercase text-sky-600 mb-8 mt-12">Philosophy</h2>
+        <p class="text-3xl md:text-5xl font-light leading-relaxed mb-12 tracking-wide text-white">
           メロディも人生も<br/>
           休みは必要ですよ
         </p>
 
-        <div class="max-w-2xl mx-auto space-y-8 text-slate-700 leading-loose text-sm md:text-base font-light">
+        <div class="max-w-2xl mx-auto space-y-8 text-white leading-loose text-sm md:text-base font-light">
           <p class="tracking-wider">
             音楽における「四分休符」は、静寂という名の旋律。<br class="hidden md:block"/>
             その小さな間が、次の音をより美しく響かせる。
@@ -193,6 +184,64 @@ const products = [
 
   <!-- スクロールアニメーション -->
   <ScrollAnimations />
+
+  <!-- Hero下のCanvas波アニメーション -->
+  <script is:inline>
+    window.addEventListener('load', () => {
+      const canvas = document.getElementById('hero-wave-canvas');
+      if (!(canvas instanceof HTMLCanvasElement)) return;
+
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      let degree = 0;
+      const amplitude = 20;
+      const period = 500;
+      const waveSpeed = 8;
+
+      const resizeCanvas = () => {
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+      };
+
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      const loop = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // 1. 全体を淡い色で塗る（元・画像部分）
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.fillStyle = '#fffaf2'; // お好みで変更可（淡い色）
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // 2. 波形で下部をくり抜き、下のセクションの色を見せる
+        ctx.globalCompositeOperation = 'destination-out';
+
+        const waveStartY = canvas.height - 100;
+
+        ctx.beginPath();
+        ctx.moveTo(0, waveStartY);
+
+        for (let x = 0; x <= canvas.width; x++) {
+          const y = amplitude * Math.sin((Math.PI / period) * (degree + x));
+          ctx.lineTo(x, waveStartY + y);
+        }
+
+        ctx.lineTo(canvas.width, canvas.height);
+        ctx.lineTo(0, canvas.height);
+        ctx.closePath();
+
+        ctx.fill();
+
+        degree += waveSpeed;
+        requestAnimationFrame(loop);
+      };
+
+      loop();
+    });
+  </script>
 
   <style>
     /* 各文字のスタイル */
