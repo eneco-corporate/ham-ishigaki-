@@ -10,6 +10,7 @@ import ishigakiImage from '../images/ishigaki01.webp';
 import ishigakiImage2 from '../images/ishigaki02.webp';
 import ishigakiImage3 from '../images/ishigaki03.webp'; 
 import waveImage1 from '../images/wave1.webp';
+import kyuufuImage from '../images/kyuufu2.png';
 
 const products = [
   {
@@ -37,6 +38,15 @@ const products = [
 
 <Layout title="石垣野底山羊ハム | 四分休符の島からの贈り物">
   <!-- 一時的にページローディング時のアニメーションを停止中 -->
+
+  <!-- 右下に常時表示する画像 -->
+  <div class="fixed bottom-0 right-0 z-40 pointer-events-none p-4 md:p-6">
+    <img
+      src={kyuufuImage.src}
+      alt=""
+      class="w-20 h-auto md:w-28 object-contain drop-shadow-md"
+    />
+  </div>
 
   <main id="main-content" class="relative">
     <!-- Hero -->
