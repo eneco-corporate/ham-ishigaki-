@@ -3,12 +3,14 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import FeatureCard from '../components/FeatureCard.astro';
 import MissionSection from '../components/MissionSection.astro';
+import CompanySection from '../components/CompanySection.astro';
 import ScrollAnimations from '../components/ScrollAnimations.astro';
 import QualityCard from '../components/QualityCard.astro';
 import ishigakiImage from '../images/ishigaki01.webp';
 import ishigakiImage2 from '../images/ishigaki02.webp';
 import ishigakiImage3 from '../images/ishigaki03.webp'; 
 import waveImage1 from '../images/wave1.webp';
+import waveImage4 from '../images/wave4.webp';
 
 const products = [
   {
@@ -42,22 +44,8 @@ const products = [
     <Hero
       videoSources={[
         '/bg1.mp4',
-        '/bg2.mp4',
-        '/bg3.mp4',
       ]}
     />
-
-    <!-- Canvas 波アニメーションのセクション区切り（動画の直下に常時表示） -->
-    <section class="relative bg-[#005776]">
-      <canvas
-        id="hero-wave-canvas"
-        class="block w-full h-[220px] md:h-[260px] lg:h-[320px] bg-[#005776]"
-      ></canvas>
-
-      <!-- 下のベース背景 -->
-      <div class="bg-[#fffaf2] h-16 md:h-24 lg:h-28 -mt-1"></div>
-    </section>
-
     <!-- Feature Sections -->
     <div class="max-w-7xl mx-auto px-6 md:px-12 text-black bg-[#fffaf2] pt-8 md:pt-12">
       <FeatureCard
@@ -146,6 +134,9 @@ const products = [
       </div>
     </section>
 
+    <!-- 販売会社 -->
+    <CompanySection />
+
     <!-- Footer -->
     <footer id="contact" class="py-24 md:py-32 px-6 border-t border-sky-200/20 relative scroll-mt-24">
       <div class="max-w-7xl mx-auto">
@@ -156,16 +147,16 @@ const products = [
               <div class="w-3 h-3 bg-sky-400/60 rounded-full"></div>
             </div>
             <div class="text-center space-y-2">
-              <p class="text-sm tracking-[0.3em] text-slate-700">石垣野底山羊ハム</p>
-              <p class="text-[10px] tracking-[0.4em] uppercase font-sans text-slate-600">Ishigakijima Nosoko</p>
+              <p class="text-sm tracking-[0.3em] text-slate-700">石垣島山羊ハム</p>
+              <p class="text-[10px] tracking-[0.4em] uppercase font-sans text-slate-600">Made with Ishigaki Islandヒージャー</p>
             </div>
           </div>
 
           <!-- リンク -->
           <div class="flex flex-wrap justify-center gap-8 text-[10px] tracking-[0.3em] uppercase font-sans">
-            <span class="hover:text-sky-500 transition-colors cursor-pointer">Ryugunosoko</span>
+            <span class="hover:text-sky-500 transition-colors cursor-pointer">Ryukyunosoko</span>
             <span class="text-slate-400">·</span>
-            <span class="hover:text-sky-500 transition-colors cursor-pointer">Everfood</span>
+            <span class="hover:text-sky-500 transition-colors cursor-pointer"><a href="https://everfood.co.jp/">Everfood</a></span>
             <span class="text-slate-400">·</span>
             <span class="hover:text-sky-500 transition-colors cursor-pointer">Contact</span>
           </div>
@@ -174,7 +165,7 @@ const products = [
           <div class="text-center space-y-3">
             <div class="h-px w-32 mx-auto bg-linear-to-r from-transparent via-sky-300/30 to-transparent"></div>
             <p class="text-[10px] tracking-wider">
-              © {new Date().getFullYear()} Ishigakijima Nosoko Goat Ham Project. All Rights Reserved.
+              © {new Date().getFullYear()} RYUKYU NOSOKO Limited Liability Company. All Rights Reserved.
             </p>
           </div>
         </div>
