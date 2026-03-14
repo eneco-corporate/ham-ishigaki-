@@ -4,13 +4,12 @@ import Hero from '../components/Hero.astro';
 import FeatureCard from '../components/FeatureCard.astro';
 import MissionSection from '../components/MissionSection.astro';
 import CompanySection from '../components/CompanySection.astro';
+import LineupSection from '../components/LineupSection.astro';
 import ScrollAnimations from '../components/ScrollAnimations.astro';
-import QualityCard from '../components/QualityCard.astro';
 import ishigakiImage from '../images/ishigaki01.webp';
 import ishigakiImage2 from '../images/ishigaki02.webp';
 import ishigakiImage3 from '../images/ishigaki03.webp'; 
 import waveImage1 from '../images/wave1.webp';
-import waveImage4 from '../images/wave4.webp';
 
 const products = [
   {
@@ -65,6 +64,9 @@ const products = [
         reverse={true}
       />
     </div>
+
+    <!-- Lineup Section -->
+    <LineupSection products={products} />
 
     <!-- Mission Section -->
     <MissionSection imagePath={ishigakiImage3.src} />
@@ -148,13 +150,13 @@ const products = [
             </div>
             <div class="text-center space-y-2">
               <p class="text-sm tracking-[0.3em] text-slate-700">石垣島山羊ハム</p>
-              <p class="text-[10px] tracking-[0.4em] uppercase font-sans text-slate-600">Made with Ishigaki Islandヒージャー</p>
+              <p class="text-[10px] tracking-[0.4em] uppercase font-sans text-slate-600">Made with Ishigaki Island</br>ヒージャー</p>
             </div>
           </div>
 
           <!-- リンク -->
           <div class="flex flex-wrap justify-center gap-8 text-[10px] tracking-[0.3em] uppercase font-sans">
-            <span class="hover:text-sky-500 transition-colors cursor-pointer">Ryukyunosoko</span>
+            <span class="hover:text-sky-500 transition-colors cursor-pointer">RYUKYU NOSOKO</span>
             <span class="text-slate-400">·</span>
             <span class="hover:text-sky-500 transition-colors cursor-pointer"><a href="https://everfood.co.jp/">Everfood</a></span>
             <span class="text-slate-400">·</span>

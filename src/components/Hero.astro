@@ -26,10 +26,19 @@ const { videoSources = [] } = Astro.props;
     </div>
   )}
 
+  <!-- 画面中央の島（テキストの後ろ） -->
+  <div class="pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
+    <Image
+      src={islandImage}
+      alt="石垣島"
+      class="w-64 h-auto object-cover"
+    />
+  </div>
+
   <!-- メインコピー -->
   <div class="relative z-20 animate-fade-in-delayed flex flex-col items-center">
     <p class="text-xs md:text-sm font-sans tracking-[0.3em] uppercase text-white mb-6 font-light">
-      Ishigakijima Nosoko Premium
+      RYUUKYUU NOSOKO 
     </p>
 
     <h1 class="mb-8 font-zen-kaku">
@@ -43,17 +52,11 @@ const { videoSources = [] } = Astro.props;
 
     <!-- サブコピー -->
     <div class="max-w-2xl mx-auto space-y-8 mt-16 font-zen-kaku">
-      <p class="text-base md:text-xl tracking-[0.2em] leading-relaxed text-white relative">
+      <p class="text-base md:text-xl tracking-[0.2em] leading-relaxed text-black relative">
         ちょっと小休止しましょ<br/>
         <span class="hidden md:inline">　</span>青い波と風にふれて<br/>
         ほんのちょっとだけ心を円くしませんか
       </p>
-      <!-- 画面中央に配置する島イメージ -->
-      <Image
-        src={islandImage}
-        alt="石垣島"
-        class="w-56 h-auto object-cover absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-      />
 
       <div class="pt-6 flex flex-col items-center gap-3 font-zen-kaku">
         <div class="w-px h-12 from-transparent via-sky-400/60 to-transparent"></div>
@@ -71,7 +74,7 @@ const { videoSources = [] } = Astro.props;
           Lineup
         </a>
         <a
-          href="#contact"
+          href="#company"
           class="inline-flex items-center justify-center rounded-full bg-white/60 px-8 py-3 text-xs md:text-sm font-sans tracking-[0.25em] uppercase text-slate-800 ring-1 ring-slate-200/70 backdrop-blur-md transition hover:bg-white/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-200"
         >
           Contact
