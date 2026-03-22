@@ -4,6 +4,7 @@ import Hero from '../components/Hero.astro';
 import FeatureCard from '../components/FeatureCard.astro';
 import MissionSection from '../components/MissionSection.astro';
 import CompanySection from '../components/CompanySection.astro';
+import ManufacturingSection from '../components/ManufacturingSection.astro';
 import LineupSection from '../components/LineupSection.astro';
 import ScrollAnimations from '../components/ScrollAnimations.astro';
 import ishigakiImage from '../images/ishigaki01.webp';
@@ -59,8 +60,8 @@ const products = [
     <div class="max-w-7xl mx-auto px-6 md:px-12 text-black bg-[#fffaf2] pt-8 md:pt-12">
       <FeatureCard
         tag="Premium & Rare"
-        title="日本初、山羊の新たな可能性の発信"  
-        description="沖縄県でヒージャーと言われる山羊は琉球王朝時代（約15世紀頃）より山羊食文化があり、古来より沖縄では山羊はヌチグスイ（命の薬）と言われ重宝され（滋養強壮、産後女性の栄養補給等あらゆる万能薬として）、又祝い事(晴れの日)には欠かせない、島人にとっては大事な食材です。今、琉球石垣島から山羊の新たな可能性を発信し、山羊食文化のリーディングモデルを目指します。"
+        title="山羊の新たな可能性の発信"  
+        description="沖縄の方言でヒージャーと呼ばれる山羊は、琉球王朝時代（約15世紀頃）から食されてきた文化があり、古来より沖縄では山羊はヌチグスイ（命の薬）と言われ重宝され（滋養強壮、産後女性の栄養補給等あらゆる万能薬として）ていました。そして祝い事(晴れの日)には欠かせない、島人にとっては心ともいえる大事な食材です。今、琉球石垣島から山羊の新たな可能性を発信し、山羊食文化のリーディングモデルを目指します。"
         imagePath={ishigakiImage.src}
         textColor="text-black"
         subTextColor="text-black"
@@ -148,6 +149,9 @@ const products = [
 
     <!-- 販売会社 -->
     <CompanySection />
+
+    <!-- 製造受託会社 -->
+    <ManufacturingSection />
 
     <!-- Footer -->
     <footer id="contact" class="py-24 md:py-32 px-6 border-t border-sky-200/20 relative scroll-mt-24">
