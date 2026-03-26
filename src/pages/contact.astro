@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const TO_EMAIL = 'ryukyu_nosoko@outlook.jp';
+const sent = Astro.url.searchParams.get('sent') === '1';
+---
+
+<Layout title="お問い合わせ | 石垣野底山羊ハム">
+  <main class="relative pt-24 pb-24 px-6">
+    <section class="max-w-4xl mx-auto text-center">
+      <h1 class="text-sm font-sans tracking-[0.4em] uppercase text-sky-600 mb-6">お問い合わせ</h1>
+      <p class="text-2xl md:text-3xl font-light leading-relaxed tracking-wide text-slate-800">
+        山羊生ハムに関するご相談・ご依頼は<br class="hidden md:block" />
+        こちらからお気軽にお問い合わせください
+      </p>
+      <div class="w-24 h-px mx-auto bg-linear-to-r from-transparent via-sky-300/60 to-transparent mt-10"></div>
+    </section>
+
+    <section class="mt-14">
+      <div class="max-w-4xl mx-auto">
+        <div class="relative rounded-4xl overflow-hidden bg-white/70 backdrop-blur-sm border border-sky-200/30 shadow-[0_30px_100px_rgba(15,23,42,0.08)]">
+          <div class="absolute inset-0 bg-linear-to-b from-white/60 via-transparent to-transparent -z-10"></div>
+
+          {sent && (
+            <div class="p-8 md:p-10 text-center">
+              <p class="text-2xl md:text-3xl font-light leading-relaxed tracking-wide text-slate-800">
+                送信が完了しました。
+              </p>
+              <p class="mt-4 text-slate-600 text-sm md:text-base font-light">
+                追ってご連絡いたしますので、しばらくお待ちください。
+              </p>
+            </div>
+          )}
+
+          {!sent && (
+          <form
+            id="contact-form"
+            action={`https://formsubmit.co/${TO_EMAIL}`}
+            class="p-6 md:p-10 space-y-6 text-left"
+            autocomplete="on"
+            method="POST"
+          >
+            <input type="hidden" name="_subject" value="お問い合わせ（山羊生ハム）" />
+            <input type="hidden" name="_next" value="/contact?sent=1" />
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <label class="space-y-2">
+                <span class="block text-sm text-slate-700 font-medium">お名前</span>
+                <input
+                  name="name"
+                  required
+                  type="text"
+                  class="w-full rounded-xl border border-sky-200/60 bg-white/80 px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-300/50"
+                  placeholder="例：山田 太郎"
+                />
+              </label>
+
+              <label class="space-y-2">
+                <span class="block text-sm text-slate-700 font-medium">会社名（任意）</span>
+                <input
+                  name="company"
+                  type="text"
+                  class="w-full rounded-xl border border-sky-200/60 bg-white/80 px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-300/50"
+                  placeholder="例：株式会社〇〇"
+                />
+              </label>
+            </div>
+
+            <label class="space-y-2">
+              <span class="block text-sm text-slate-700 font-medium">メールアドレス</span>
+              <input
+                name="email"
+                required
+                type="email"
+                class="w-full rounded-xl border border-sky-200/60 bg-white/80 px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-300/50"
+                placeholder="例：example@email.com"
+              />
+            </label>
+
+            <label class="space-y-2">
+              <span class="block text-sm text-slate-700 font-medium">お問い合わせ内容</span>
+              <textarea
+                name="message"
+                required
+                rows="6"
+                class="w-full rounded-xl border border-sky-200/60 bg-white/80 px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-300/50"
+                placeholder="例：卸販売の相談、共同開発のご相談など"
+              ></textarea>
+            </label>
+
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+              <p class="text-xs text-slate-500 leading-relaxed">
+                ※送信はこのページから行われます。
+              </p>
+
+              <button
+                type="submit"
+                class="inline-flex items-center justify-center rounded-full bg-sky-700 px-8 py-3 text-xs md:text-sm font-sans tracking-[0.25em] uppercase text-white shadow-[0_30px_80px_rgba(14,165,233,0.25)] ring-1 ring-sky-200/40 transition hover:bg-sky-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
+              >
+                送信する
+              </button>
+            </div>
+          </form>
+          )}
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
