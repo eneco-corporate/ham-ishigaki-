@@ -61,7 +61,7 @@ const products = [
       <FeatureCard
         tag="Premium & Rare"
         title="山羊の新たな可能性の発信"  
-        description="沖縄の方言でヒージャーと呼ばれる山羊は、琉球王朝時代（約15世紀頃）から食されてきた文化があり、古来より沖縄では山羊はヌチグスイ（命の薬）と言われ重宝され（滋養強壮、産後女性の栄養補給等あらゆる万能薬として）ていました。そして祝い事(晴れの日)には欠かせない、島人にとっては心ともいえる大事な食材です。今、琉球石垣島から山羊の新たな可能性を発信し、山羊食文化のリーディングモデルを目指します。"
+        description="沖縄の方言でヒージャーと呼ばれる山羊は、琉球王朝時代（約15世紀頃）から食されてきた。\nそして、古来より沖縄では山羊はヌチグスイ（命の薬）と言われ重宝され（滋養強壮、産後女性の栄養補給等あらゆる万能薬として）、又祝い事(晴れの日)には欠かせない、島人にとっては心ともいえる大事な食材です。今、琉球石垣島から山羊の新たな可能性を創造・発信し、山羊食文化のリーディングモデルを目指します。"
         imagePath={ishigakiImage.src}
         textColor="text-black"
         subTextColor="text-black"
@@ -120,12 +120,12 @@ const products = [
       <div class="absolute inset-0 bg-linear-to-b from-transparent via-sky-200/40 to-transparent -z-10"></div>
 
       <div class="max-w-5xl mx-auto">
-        <div class="text-center mb-16 md:mb-24">
+        <div class="text-center">
           <h2 class="text-sm font-sans tracking-[0.4em] uppercase text-sky-600 mb-4">Pairing</h2>
           <p class="text-2xl md:text-4xl font-light tracking-wide text-slate-800">島酒とともに</p>
         </div>
 
-        <div class="relative p-12 md:p-20 rounded-[2.5rem] overflow-hidden">
+        <div class="relative p-8 rounded-[2.5rem] overflow-hidden">
           <!-- 背景レイヤー -->
           <div class="absolute inset-0 bg-linear-to-br from-white/8 to-white/4 backdrop-blur-2xl -z-10"></div>
           <div class="absolute inset-0 border border-sky-200/30 rounded-[2.5rem] -z-10"></div>
@@ -158,18 +158,38 @@ const products = [
       <div class="max-w-5xl mx-auto">
         <div class="relative rounded-4xl overflow-hidden bg-white/70 backdrop-blur-sm border border-sky-200/30 shadow-[0_30px_100px_rgba(15,23,42,0.08)]">
           <div class="absolute inset-0 bg-linear-to-b from-white/60 via-transparent to-transparent -z-10"></div>
-          <div class="p-8 md:p-12 text-center space-y-6">
-            <h2 class="text-sm font-sans tracking-[0.4em] uppercase text-sky-600">お問い合わせはこちら</h2>
-            <p class="text-xl md:text-3xl font-light leading-relaxed tracking-wide text-slate-800">
-              山羊生ハムに関するご相談・ご依頼は<br class="hidden md:block" />こちらからどうぞ
-            </p>
-            <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="/contact"
-                class="inline-flex items-center justify-center rounded-full bg-sky-700 px-10 py-3 text-xs md:text-sm font-sans tracking-[0.25em] uppercase text-white shadow-[0_30px_80px_rgba(14,165,233,0.25)] ring-1 ring-sky-200/40 transition hover:bg-sky-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
-              >
-                Contact Form
-              </a>
+          <div class="p-8 md:p-12 text-center">
+            <h2 class="text-sm font-sans tracking-[0.4em] uppercase text-sky-600 mb-10">お問い合わせ</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+              <div class="rounded-3xl border border-sky-200/50 bg-white/80 p-6 md:p-8 text-center transition hover:bg-white hover:border-sky-300/70 space-y-5">
+                <h3 class="text-lg md:text-xl font-light leading-relaxed tracking-wide text-slate-800">
+                  商品の品質に関するお問い合わせ
+                </h3>
+                <p class="text-sm md:text-base text-slate-600 font-light leading-relaxed">
+                  品質や保存方法、製造に関するご質問はこちらからお問い合わせください。<br class="hidden md:block"/>宛先：株式会社Ever Food
+                </p>
+                <a
+                  href="https://everfood.co.jp/contact"
+                  class="inline-flex items-center justify-center rounded-full bg-sky-700 px-7 py-3 text-xs md:text-sm font-sans tracking-[0.2em] uppercase text-white ring-1 ring-sky-200/40 transition hover:bg-sky-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
+                >
+                  お問い合わせ
+                </a>
+              </div>
+
+              <div class="rounded-3xl border border-sky-200/50 bg-white/80 p-6 md:p-8 text-center transition hover:bg-white hover:border-sky-300/70 space-y-5">
+                <h3 class="text-lg md:text-xl font-light leading-relaxed tracking-wide text-slate-800">
+                  その他のお問い合わせ
+                </h3>
+                <p class="text-sm md:text-base text-slate-600 font-light leading-relaxed">
+                  取引・共同開発・メディア掲載など、その他のご相談はこちらからご連絡ください。<br class="hidden md:block"/>宛先：合同会社龍宮野底
+                </p>
+                <a
+                  href="/contact?type=other"
+                  class="inline-flex items-center justify-center rounded-full bg-slate-700 px-7 py-3 text-xs md:text-sm font-sans tracking-[0.2em] uppercase text-white ring-1 ring-slate-200/40 transition hover:bg-slate-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-300"
+                >
+                  お問い合わせ
+                </a>
+              </div>
             </div>
           </div>
         </div>
