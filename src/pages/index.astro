@@ -15,6 +15,7 @@ import kyuufuImage from '../images/kyuufu2.png';
 import Salad from '../images/salad.webp';
 import Bread from '../images/bread.webp';
 import Vin from '../images/vin.webp';
+import Icon from '../images/icon.webp';
 
 const products = [
   {
@@ -42,15 +43,6 @@ const products = [
 
 <Layout title="石垣野底山羊ハム | 四分休符の島からの贈り物">
   <!-- 一時的にページローディング時のアニメーションを停止中 -->
-
-  <!-- 右下に常時表示する画像 -->
-  <div class="fixed bottom-0 right-0 z-40 pointer-events-none p-4 md:p-6">
-    <img
-      src={kyuufuImage.src}
-      alt=""
-      class="w-20 h-auto md:w-28 object-contain drop-shadow-md"
-    />
-  </div>
 
     <main id="main-content" class="relative">
     <!-- Hero -->
@@ -105,6 +97,8 @@ const products = [
           休みは必要ですよ
         </p>
 
+        <div class="flex md:flex-row flex-col gap-20 items-center justify-center">
+        <img src={Icon.src} alt="Icon" class="w-30 h-auto" />
         <div class="max-w-2xl mx-auto space-y-8 text-white leading-loose text-sm md:text-base font-light">
           <p class="tracking-wider">
             音楽における「四分休符」は、静寂という名の旋律。<br class="hidden md:block"/>
@@ -114,6 +108,8 @@ const products = [
             石垣島野底の山羊ハムは、忙しい日常に打つ、贅沢な休符。<br class="hidden md:block"/>
             ほんの一瞬の小休止が、明日への活力を生む。
           </p>
+        </div>
+        <img src={Icon.src} alt="Icon" class="w-30 h-auto" />
         </div>
       </div>
     </section>
