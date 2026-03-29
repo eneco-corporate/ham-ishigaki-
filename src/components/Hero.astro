@@ -2,6 +2,7 @@
 import Image from 'astro/components/Image.astro';
 import islandImage from '../images/island.png';
 import Icon from '../images/icon.webp';
+import Icon2 from '../images/icon2.webp';
 
 interface Props {
   /** Hero背景に流す動画のパス配列（例: ['/hero1.mp4', ...]） */
@@ -64,7 +65,7 @@ const { videoSources = [] } = Astro.props;
       <div class="pt-6 flex flex-col items-center gap-3 font-zen-kaku">
         <div class="w-px h-12 from-transparent via-sky-400/60 to-transparent flex flex-col items-center justify-center"></div>
         <div class="flex flex-row gap-20 items-center justify-center"> 
-        <img src={Icon.src} alt="Icon" class="w-30 h-auto" />
+        <img src={Icon2.src} alt="Icon" class="w-30 h-auto" />
           <p class="text-sky-600 text-xs md:text-sm tracking-[0.3em] font-sans font-bold text-center whitespace-nowrap shrink-0">
             四分休符の島　石垣
           </p>  
