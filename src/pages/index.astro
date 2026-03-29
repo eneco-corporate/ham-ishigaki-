@@ -276,64 +276,6 @@ const products = [
   <!-- スクロールアニメーション -->
   <ScrollAnimations />
 
-  <!-- Hero下のCanvas波アニメーション -->
-  <script is:inline>
-    window.addEventListener('load', () => {
-      const canvas = document.getElementById('hero-wave-canvas');
-      if (!(canvas instanceof HTMLCanvasElement)) return;
-
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-
-      let degree = 0;
-      const amplitude = 20;
-      const period = 500;
-      const waveSpeed = 8;
-
-      const resizeCanvas = () => {
-        const rect = canvas.getBoundingClientRect();
-        canvas.width = rect.width;
-        canvas.height = rect.height;
-      };
-
-      resizeCanvas();
-      window.addEventListener('resize', resizeCanvas);
-
-      const loop = () => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // 1. 全体を淡い色で塗る（元・画像部分）
-        ctx.globalCompositeOperation = 'source-over';
-        ctx.fillStyle = '#fffaf2'; // お好みで変更可（淡い色）
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        // 2. 波形で下部をくり抜き、下のセクションの色を見せる
-        ctx.globalCompositeOperation = 'destination-out';
-
-        const waveStartY = canvas.height - 100;
-
-        ctx.beginPath();
-        ctx.moveTo(0, waveStartY);
-
-        for (let x = 0; x <= canvas.width; x++) {
-          const y = amplitude * Math.sin((Math.PI / period) * (degree + x));
-          ctx.lineTo(x, waveStartY + y);
-        }
-
-        ctx.lineTo(canvas.width, canvas.height);
-        ctx.lineTo(0, canvas.height);
-        ctx.closePath();
-
-        ctx.fill();
-
-        degree += waveSpeed;
-        requestAnimationFrame(loop);
-      };
-
-      loop();
-    });
-  </script>
-
   <style>
     /* 各文字のスタイル */
     .char-0, .char-1, .char-2, .char-3, .char-4, .char-5, .char-6, .char-7, .char-8 {

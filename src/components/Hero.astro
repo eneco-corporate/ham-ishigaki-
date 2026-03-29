@@ -12,13 +12,13 @@ interface Props {
 const { videoSources = [] } = Astro.props;
 ---
 
-<section class="min-h-screen flex flex-col items-center justify-center text-center px-6 py-20 relative overflow-hidden">
+
   <!-- 背景動画（4本を順番に再生） -->
   {videoSources.length > 0 && (
     <div class="pointer-events-none absolute inset-0 z-0 overflow-hidden">
       <video
         id="hero-bg-video"
-        class="w-full h-screen object-cover opacity-80"
+        class="w-full h-[80vh] object-cover opacity-80"
         autoplay
         muted
         loop
@@ -29,7 +29,7 @@ const { videoSources = [] } = Astro.props;
       ></video>
     </div>
   )}
-
+<section class="min-h-screen flex flex-col items-center justify-center text-center px-6 py-20 relative overflow-hidden">
   <!-- 画面中央の島（テキストの後ろ） -->
   <div class="pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
     <Image
